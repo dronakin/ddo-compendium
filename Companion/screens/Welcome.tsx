@@ -11,12 +11,14 @@ const WelcomeContainer = styled(Container)`
     justify-content: space-between;
     height: 100%;
     width: 100%;
+    flex: 1;
+    max-height: 55%;
+    flex-Directions: column;
+    align-Items: center;
 `;
 
 const WelcomeList = styled.View`
-    width: 100%;
-    flex: 1;
-    max-height: 55%;
+    
 `;
 
 const styles = StyleSheet.create({
