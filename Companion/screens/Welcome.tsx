@@ -4,6 +4,7 @@ import styled from "styled-components/native";
 
 import { Container } from "../components/shared";
 import { colors } from "../components/colors";
+import { SectionList, View, StyleSheet } from "react-native";
 
 const WelcomeContainer = styled(Container)`
     background-color: ${colors.graydark};
@@ -12,26 +13,44 @@ const WelcomeContainer = styled(Container)`
     width: 100%;
 `;
 
-const TopSection = styled.View`
+const WelcomeList = styled.View`
     width: 100%;
     flex: 1;
     max-height: 55%;
 `;
 
-const BottomSection = styled.View`
-    width: 100%;
-    padding: 25px;
-    flex: 1;
-`;
+const styles = StyleSheet.create({
+    container: {
+     flex: 1,
+     paddingTop: 22
+    },
+    sectionHeader: {
+      paddingTop: 2,
+      paddingLeft: 10,
+      paddingRight: 10,
+      paddingBottom: 2,
+      fontSize: 14,
+      fontWeight: 'bold',
+      backgroundColor: 'rgba(247,247,247,1.0)',
+    },
+    item: {
+      padding: 10,
+      fontSize: 18,
+      height: 44,
+    },
+  })
 
-export const Welcome : FunctionComponent = () => {
+
+export const Welcome = () => {
     return (
         <>
-            <StatusBar style="light" />
-            <WelcomeContainer>
-                <TopSection></TopSection>
-                <BottomSection></BottomSection>
-            </WelcomeContainer>
+            <View style={styles.container}>
+              <SectionList 
+                sections={[
+                    {data: ['Classes', 'Races', 'Feats', 'Items', 'Spells',]}
+                ]}
+              />
+            </View>
         </>
     );
 };
